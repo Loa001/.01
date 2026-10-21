@@ -1,0 +1,23 @@
+<section class="page">
+  <header>
+    <h1>Reportes</h1>
+    <p>Resumen general</p>
+  </header>
+
+  <table class="data-table">
+    <tbody>
+      <tr>
+        <th>Total de registros</th>
+        <td>{{ store.users().length }}</td>
+      </tr>
+      <tr>
+        <th>Primer registro</th>
+        <td>{{ store.users()[0]?.name }}</td>
+      </tr>
+      <tr>
+        <th>Último registro</th>
+        <td>{{ store.users()[store.users().length - 1]?.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

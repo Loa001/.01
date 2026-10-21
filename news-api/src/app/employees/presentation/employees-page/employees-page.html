@@ -1,0 +1,29 @@
+<section class="page">
+  <header>
+    <h1>Empleados</h1>
+    <p>Personal de la empresa</p>
+  </header>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Correo</th>
+        <th>Ciudad</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of store.users(); track user.id) {
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.city }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>
