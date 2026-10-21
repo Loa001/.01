@@ -1,1 +1,28 @@
-<p>users-page works!</p>
+<section class="page">
+  <header>
+    <h1>Usuarios</h1>
+    <p>Usuarios obtenidos desde JSONPlaceholder</p>
+  </header>
+
+  @if (store.loading()) {
+    <p>Cargando usuarios...</p>
+  }
+
+  @if (store.error()) {
+    <p class="error">Error: {{ store.error() }}</p>
+  }
+
+  <div class="cards">
+    @for (user of store.users(); track user.id) {
+      <article class="card">
+        <h2>{{ user.name }}</h2>
+        <p class="username">&#64;{{ user.username }}</p>
+        <p><strong>Correo:</strong> {{ user.email }}</p>
+        <p><strong>Teléfono:</strong> {{ user.phone }}</p>
+        <p><strong>Ciudad:</strong> {{ user.city }}</p>
+        <p><strong>Empresa:</strong> {{ user.company }}</p>
+        <a [href]="'https://' + user.website" target="_blank">{{ user.website }}</a>
+      </article>
+    }
+  </div>
+</section>

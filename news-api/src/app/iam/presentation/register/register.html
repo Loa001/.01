@@ -1,0 +1,40 @@
+<section class="auth">
+  <form class="auth-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Crear cuenta</h1>
+    <p class="subtitle">Regístrate para entrar al dashboard</p>
+
+    <label>
+      Nombre
+      <input type="text" formControlName="name" placeholder="Tu nombre">
+    </label>
+    @if (form.controls.name.touched && form.controls.name.invalid) {
+      <small class="field-error">El nombre es obligatorio</small>
+    }
+
+    <label>
+      Correo
+      <input type="email" formControlName="email" placeholder="correo@ejemplo.com">
+    </label>
+    @if (form.controls.email.touched && form.controls.email.invalid) {
+      <small class="field-error">Ingresa un correo válido</small>
+    }
+
+    <label>
+      Contraseña
+      <input type="password" formControlName="password" placeholder="Mínimo 6 caracteres">
+    </label>
+    @if (form.controls.password.touched && form.controls.password.invalid) {
+      <small class="field-error">La contraseña debe tener al menos 6 caracteres</small>
+    }
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button type="submit">Registrarme</button>
+
+    <p class="switch">
+      ¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a>
+    </p>
+  </form>
+</section>

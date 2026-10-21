@@ -1,21 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MatListItem, MatListModule, MatNavList } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
-import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   imports: [
-
     MatSidenavContainer,
     MatSidenavContent,
     MatSidenav,
     MatIcon,
-    MatNavList,
-    MatListItem,
     MatListModule,
-    MatSlideToggle,
-
+    RouterLink,
+    RouterOutlet
   ],
   selector: 'app-layaout',
   styleUrl: './layaout.css',
@@ -27,6 +24,9 @@ export class Layaout {
 
   toggleMenu(): void {
     this.collapsed.update(valor => !valor);
+  }
+
+  logout(): void {
   }
 
 

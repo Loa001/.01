@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { UsersStore } from '../../application/users.store';
 
 @Component({
   imports: [],
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './users-page.css',
   templateUrl: './users-page.html',
 })
-export class UsersPage {}
+export class UsersPage implements OnInit {
+
+  protected readonly store = inject(UsersStore);
+
+  ngOnInit(): void {
+    this.store.loadUsers();
+  }
+}

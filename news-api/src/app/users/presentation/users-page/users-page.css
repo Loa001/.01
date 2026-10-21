@@ -1,0 +1,22 @@
+.page { padding: 24px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 { margin: 0 0 4px; font-size: 1.1rem; }
+.username { color: #64748b; margin: 0 0 12px; }
+.card p { margin: 4px 0; }
+.card a { display: inline-block; margin-top: 8px; color: #2563eb; }
+.error { color: #c62828; }
