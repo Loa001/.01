@@ -1,0 +1,15 @@
+<section class="page">
+  <div class="welcome">
+    <h1>¡Bienvenido, {{ authStore.currentUser()?.name }}!</h1>
+    <p>Selecciona una sección para comenzar.</p>
+  </div>
+
+  <div class="shortcuts">
+    @for (section of sections; track section.route) {
+      <a class="shortcut" [routerLink]="section.route">
+        <mat-icon>{{ section.icon }}</mat-icon>
+        <span>{{ section.label }}</span>
+      </a>
+    }
+  </div>
+</section>

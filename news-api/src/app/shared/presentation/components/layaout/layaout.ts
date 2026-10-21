@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthStore } from '../../../../iam/application/auth.store';
 
 @Component({
   imports: [
@@ -20,6 +21,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class Layaout {
 
+  protected readonly authStore = inject(AuthStore);
+  private readonly router = inject(Router);
+
   readonly collapsed = signal(false);
 
   toggleMenu(): void {
@@ -27,7 +31,7 @@ export class Layaout {
   }
 
   logout(): void {
+    this.authStore.logout();
+    this.router.navigate(['/login']);
   }
-
-
 }

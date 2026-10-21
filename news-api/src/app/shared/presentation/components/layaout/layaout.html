@@ -1,5 +1,4 @@
-<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
-  <mat-sidenav-container class="container" autosize>
+<mat-sidenav-container class="container" autosize>
   <mat-sidenav
     mode="side"
     opened
@@ -16,6 +15,12 @@
     </div>
 
     <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard/inicio">
+        <mat-icon matListItemIcon>home</mat-icon>
+        @if (!collapsed()) {
+          <span matListItemTitle>Inicio</span>
+        }
+      </a>
       <a mat-list-item routerLink="/dashboard/clientes">
         <mat-icon matListItemIcon>people</mat-icon>
         @if (!collapsed()) {
@@ -56,6 +61,14 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <header class="topbar">
+      <h1>Sistema de Gestión Empresarial</h1>
+      <span class="user">
+        <mat-icon>account_circle</mat-icon>
+        {{ authStore.currentUser()?.name }}
+      </span>
+    </header>
+
     <router-outlet />
   </mat-sidenav-content>
 </mat-sidenav-container>

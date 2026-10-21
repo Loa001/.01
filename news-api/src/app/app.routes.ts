@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Layaout } from './shared/presentation/components/layaout/layaout';
+import { Home } from './shared/presentation/home/home';
 import { Login } from './iam/presentation/login/login';
 import { Register } from './iam/presentation/register/register';
 import { authGuard } from './iam/infrastructure/auth-guard';
@@ -17,12 +18,13 @@ export const routes: Routes = [
     component: Layaout,
     canActivate: [authGuard],
     children: [
+      { path: 'inicio', component: Home },
       { path: 'clientes', component: ClientsPage },
       { path: 'empleados', component: EmployeesPage },
       { path: 'productos', component: ProductsPage },
       { path: 'reportes', component: ReportsPage },
       { path: 'usuarios', component: UsersPage },
-      { path: '', redirectTo: 'usuarios', pathMatch: 'full' }
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
